@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand">Singh Dairy Farm</a>
+      <div class="nav-links">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="/products"><i class="fas fa-milk"></i> Products</a>
+        <a href="/farm-visit"><i class="fas fa-calendar-alt"></i> Farm Visit</a>
+        <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <h2 class="section-title">Our Dairy Products</h2>
+    <div class="product-grid">
+      <% products.forEach(product => { %>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name"><%= product.name %></h3>
+            <p class="product-price">₹<%= product.price %> / <%= product.unit %></p>
+            <p class="product-description"><%= product.description %></p>
+            <a href="/products/<%= encodeURIComponent(product.name) %>" class="btn">View Details</a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </section>
+
+  <section class="section" style="background-color: var(--light-gray);">
+    <h2 class="section-title">Why Our Products Are Special</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-leaf"></i>
+        <h3>100% Natural</h3>
+        <p>All our products are made from pure, natural ingredients without any artificial additives.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-heart"></i>
+        <h3>Farm Fresh</h3>
+        <p>Products are collected fresh daily from our healthy, well-cared-for dairy cattle.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-certificate"></i>
+        <h3>Quality Assured</h3>
+        <p>Every product undergoes strict quality checks to ensure the highest standards.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-truck"></i>
+        <h3>Quick Delivery</h3>
+        <p>Fast delivery to maintain freshness and quality of our products.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Order Now</h2>
+    <div class="form-container">
+      <p>Place your order for fresh dairy products. We'll deliver them right to your doorstep!</p>
+      <form id="orderForm" action="/products" method="POST">
+        <div class="form-group">
+          <label for="product">Select Product</label>
+          <select id="product" name="product" required>
+            <option value="">Choose a product...</option>
+            <% products.forEach(product => { %>
+              <option value="<%= product.name %>"><%= product.name %> - <%= product.price %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Delivery Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn">Place Order</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-phone"></i> +91 7834933718</p>
+          <p><i class="fas fa-envelope"></i> singhdairy72@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Mahuli Uttar Tola near Shiv Mandir, Saran -841411</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Singh Dairy Farm. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <script>
+    // Show loading animation when submitting form
+    document.getElementById('orderForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        document.querySelector('.loading').classList.add('active');
+        
+        const formData = {
+            product: document.getElementById('product').value,
+            quantity: document.getElementById('quantity').value,
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value
+        };
+
+        try {
+            const response = await fetch('/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+            
+            if (data.success) {
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.innerHTML = `
+                    <div class="success-content">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Order Placed Successfully!</h3>
+                        <p>Thank you for your order. We will contact you shortly to confirm the details.</p>
+                        <button onclick="this.parentElement.parentElement.remove()" class="btn">Close</button>
+                    </div>
+                `;
+                document.body.appendChild(successMessage);
+                e.target.reset();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        } catch (error) {
+            alert('Error submitting order. Please try again.');
+            console.error('Error:', error);
+        } finally {
+            document.querySelector('.loading').classList.remove('active');
+        }
+    });
+
+    // Add scroll reveal animation
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        observer.observe(card);
+    });
+  </script>
+
+  <style>
+    .success-message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .success-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        animation: slideUp 0.3s ease;
+    }
+
+    .success-content i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .success-content h3 {
+        color: var(--dark-color);
+        margin-bottom: 1rem;
+    }
+
+    .success-content p {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Product Card Animations */
+    .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            120deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent
+        );
+        transition: 0.5s;
+    }
+
+    .product-card:hover::before {
+        left: 100%;
+    }
+
+    .product-image {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-image img {
+        transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.1);
+    }
+
+    /* Loading Animation */
+    .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .loading.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid var(--light-gray);
+        border-top: 5px solid var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Product Grid Animation */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+
+    .product-card {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Stagger animation for cards */
+    .product-card:nth-child(1) { animation-delay: 0.1s; }
+    .product-card:nth-child(2) { animation-delay: 0.2s; }
+    .product-card:nth-child(3) { animation-delay: 0.3s; }
+  </style>
+</body>
+</html>

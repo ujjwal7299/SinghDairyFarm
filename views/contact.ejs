@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-gradient-to-br from-green-100 to-green-300 min-h-screen flex flex-col items-center text-gray-800 p-4">
+  
+  <!-- Header -->
+  <!-- <header class="w-full bg-gradient-to-r from-green-700 to-green-900 py-6 text-white text-center shadow-lg relative">
+    <h1 class="text-4xl font-extrabold tracking-wide drop-shadow-md"><%= title %></h1>
+  </header> -->
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand">Singh Dairy Farm</a>
+      <div class="nav-links">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="/products"><i class="fas fa-milk"></i> Products</a>
+        <a href="/farm-visit"><i class="fas fa-calendar-alt"></i> Farm Visit</a>
+        <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/dairy-farm.jpg');">
+    <div class="hero-content">
+      <h1>Get in Touch</h1>
+      <p>We'd love to hear from you. Contact us for any inquiries about our products or farm visits.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 class="section-title">Contact Information</h2>
+          <div class="info-cards">
+            <div class="info-card">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>Address</h3>
+              <p>Mahuli Uttar Tola near Shiv Mandir, Saran -841411</p>
+            </div>
+            <div class="info-card">
+              <i class="fas fa-phone"></i>
+              <h3>Phone</h3>
+              <p>+91 7834933718</p>
+            </div>
+            <div class="info-card">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p>singhdairy72@gmail.com</p>
+            </div>
+            <div class="info-card">
+              <i class="fas fa-clock"></i>
+              <h3>Business Hours</h3>
+              <p>Monday - Sunday: 6:00 AM - 8:00 PM</p>
+            </div>
+          </div>
+          <div class="social-links-large">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-container">
+          <h2 class="section-title">Send us a Message</h2>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background-color: var(--light-gray);">
+    <div class="container">
+      <h2 class="section-title">Business Hours</h2>
+      <div class="hours-grid">
+        <div class="hours-card">
+          <i class="fas fa-clock"></i>
+          <h3>Farm Hours</h3>
+          <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Sunday: Closed</p>
+        </div>
+        <div class="hours-card">
+          <i class="fas fa-truck"></i>
+          <h3>Delivery Hours</h3>
+          <p>Morning: 6:00 AM - 10:00 AM<br>Evening: 4:00 PM - 8:00 PM</p>
+        </div>
+        <div class="hours-card">
+          <i class="fas fa-calendar-check"></i>
+          <h3>Farm Visits</h3>
+          <p>By appointment only<br>Please book at least 24 hours in advance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-phone"></i> +91 7834933718</p>
+          <p><i class="fas fa-envelope"></i> singhdairy72@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Mahuli(Uttat Tola) Near Shiv Mandir</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Singh Dairy Farm. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Contact Box with Moving Animation -->
+  <!-- <div class="fixed bottom-6 right-6 bg-white/80 backdrop-blur-md shadow-lg rounded-xl p-4 border-l-4 border-green-600 w-72 transition-all floating-box">
+    <h2 class="text-lg font-bold text-green-700">🏡 Singh Dairy Farm</h2>
+    <p class="text-sm text-gray-700 mt-1">📍 Location: Mahuli uttar tola near shiv mandir,Saran</p>
+    <p class="text-sm text-gray-700">📞 Mobile: 7834933718</p>
+    <p class="text-sm text-gray-700">✉️ Email: <a href="mailto:singhdairy72@gmail.com" class="text-green-600 hover:underline">singhdairy72@gmail.com</a></p> -->
+  </div>
+
+  <div class="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Show loading state
+      const submitButton = e.target.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.innerHTML;
+      submitButton.innerHTML = '<span>Sending...</span><span style="margin-left: 0.5rem;">⌛</span>';
+      submitButton.disabled = true;
+      document.querySelector('.loading').classList.add('active');
+
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+          // Show success message
+          const successMessage = document.createElement('div');
+          successMessage.className = 'success-message';
+          successMessage.innerHTML = `
+            <div class="success-content">
+              <i class="fas fa-check-circle"></i>
+              <h3>Message Sent Successfully!</h3>
+              <p>${result.message}</p>
+              <button onclick="this.parentElement.parentElement.remove()" class="btn">Close</button>
+            </div>
+          `;
+          document.body.appendChild(successMessage);
+          e.target.reset();
+        } else {
+          alert(result.message || 'An error occurred. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      } finally {
+        // Reset button state
+        submitButton.innerHTML = originalButtonText;
+        submitButton.disabled = false;
+        document.querySelector('.loading').classList.remove('active');
+      }
+    });
+  </script>
+
+  <style>
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid var(--light-gray);
+      border-top: 5px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .success-message {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .success-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      animation: slideUp 0.3s ease;
+    }
+
+    .success-content i {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .success-content h3 {
+      color: var(--dark-color);
+      margin-bottom: 1rem;
+    }
+
+    .success-content p {
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+
+</body>
+</html>

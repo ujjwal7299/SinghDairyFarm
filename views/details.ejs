@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= product.name %> - Singh Dairy Farm</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3498db',
+            secondary: '#2c3e50',
+            accent: '#2ecc71'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50">
+  <%- include('partials/header') %>
+
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-6xl mx-auto">
+      <!-- Product Header -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+          <div class="relative">
+            <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="w-full h-96 object-cover rounded-lg">
+            <div class="absolute top-4 right-4 bg-primary text-white px-4 py-2 rounded-full">
+              ₹<%= product.price %> / <%= product.unit %>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center">
+            <h1 class="text-4xl font-bold text-secondary mb-4"><%= product.name %></h1>
+            <p class="text-gray-600 text-lg mb-6"><%= product.description %></p>
+            <div class="space-y-4">
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-check-circle text-accent mr-2"></i>
+                <span>Shelf Life: <%= product.shelfLife %></span>
+              </div>
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-check-circle text-accent mr-2"></i>
+                <span>100% Natural & Fresh</span>
+              </div>
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-check-circle text-accent mr-2"></i>
+                <span>Premium Quality</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nutritional Information -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <h2 class="text-3xl font-bold text-secondary mb-6">Nutritional Information</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h3 class="text-xl font-semibold text-secondary mb-2">Calories</h3>
+            <p class="text-gray-600"><%= product.nutritionalInfo.calories %> kcal</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h3 class="text-xl font-semibold text-secondary mb-2">Protein</h3>
+            <p class="text-gray-600"><%= product.nutritionalInfo.protein %>g</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h3 class="text-xl font-semibold text-secondary mb-2">Fat</h3>
+            <p class="text-gray-600"><%= product.nutritionalInfo.fat %>g</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h3 class="text-xl font-semibold text-secondary mb-2">Calcium</h3>
+            <p class="text-gray-600"><%= product.nutritionalInfo.calcium %>mg</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Benefits -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <h2 class="text-3xl font-bold text-secondary mb-6">Health Benefits</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <% product.benefits.forEach(benefit => { %>
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <i class="fas fa-heart text-accent text-xl"></i>
+              </div>
+              <div>
+                <p class="text-gray-600"><%= benefit %></p>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- Order Instructions -->
+      <div class="bg-green-50 p-6 rounded-lg">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">How to Order</h2>
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+              <span class="text-green-600 font-bold">1</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800">Fill Order Details</h3>
+              <p class="text-gray-600">Enter your name, phone number, and delivery address</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+              <span class="text-green-600 font-bold">2</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800">Specify Quantity</h3>
+              <p class="text-gray-600">Choose the amount you want to order</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+              <span class="text-green-600 font-bold">3</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800">Submit Order</h3>
+              <p class="text-gray-600">We'll contact you shortly to confirm your order</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 space-y-4">
+          <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <div class="flex items-start">
+              <i class="fas fa-info-circle text-yellow-500 mt-1 mr-3"></i>
+              <div>
+                <h3 class="font-bold text-yellow-800">Delivery Range</h3>
+                <p class="text-yellow-700">We currently deliver only within a 2km range from our farm. Please ensure your delivery address is within this range.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div class="flex items-start">
+              <i class="fas fa-exclamation-triangle text-red-500 mt-1 mr-3"></i>
+              <div>
+                <h3 class="font-bold text-red-800">Important Notice</h3>
+                <p class="text-red-700">For your safety and quality assurance, please do not accept any product that does not have our official seal intact. If the seal is broken or missing, please refuse the delivery and contact us immediately.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Section -->
+      <div class="bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-secondary mb-6">Place Your Order</h2>
+        <form id="orderForm" class="max-w-2xl mx-auto space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+              <input type="text" id="name" name="name" required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+              <input type="email" id="email" name="email" required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+            </div>
+            <div>
+              <label for="quantity" class="block text-sm font-medium text-gray-700 mb-2">Quantity *</label>
+              <div class="relative">
+                <input type="number" id="quantity" name="quantity" required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                  placeholder="Enter quantity">
+                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                  <%= product.unit %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Delivery Address *</label>
+            <textarea id="address" name="address" rows="3" required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-colors"></textarea>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Additional Notes</label>
+            <textarea id="message" name="message" rows="3"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-colors"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 relative">
+            <span>Place Order</span>
+            <div class="loading-spinner hidden absolute inset-0 flex items-center justify-center">
+              <div class="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          </button>
+        </form>
+        <div class="success-message hidden mt-4 p-4 bg-accent text-white rounded-lg text-center"></div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const loadingSpinner = form.querySelector('.loading-spinner');
+      const successMessage = document.querySelector('.success-message');
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      loadingSpinner.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+      
+      try {
+        const formData = new FormData(form);
+        formData.append('product', '<%= product.name %>');
+        formData.append('price', '<%= product.price %>');
+        
+        const response = await fetch('/products', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(Object.fromEntries(formData)),
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          successMessage.textContent = data.message;
+          successMessage.classList.remove('hidden');
+          form.reset();
+        } else {
+          throw new Error(data.message);
+        }
+      } catch (error) {
+        alert(error.message || 'Error placing order. Please try again.');
+      } finally {
+        // Reset loading state
+        submitBtn.disabled = false;
+        loadingSpinner.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

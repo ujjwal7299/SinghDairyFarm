@@ -1,0 +1,15 @@
+{
+  "name": "dairy",
+  "version": "1.0.0",
+  "description": "Singh Dairy Farm Website",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "nodemailer": "^6.9.7"
+  }
+}

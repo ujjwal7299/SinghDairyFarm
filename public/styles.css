@@ -1,0 +1,908 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Base Components */
+  .btn {
+    @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all duration-300;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Navigation */
+  .navbar {
+    @apply bg-white shadow-md fixed w-full top-0 z-50;
+  }
+  
+  .navbar-brand {
+    @apply text-2xl font-bold text-primary;
+  }
+  
+  .nav-links {
+    @apply flex gap-6;
+  }
+  
+  .nav-links a {
+    @apply text-gray-600 hover:text-primary transition-colors duration-300;
+  }
+  
+  /* Layout */
+  .section {
+    @apply py-16;
+  }
+  
+  .section-title {
+    @apply text-center mb-12 text-primary text-2xl md:text-3xl font-bold;
+  }
+  
+  /* Hero */
+  .hero {
+    @apply relative h-[60vh] flex items-center justify-center text-center text-white;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/dairy-farm.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero-content h1 {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+  
+  .hero-content p {
+    @apply text-lg max-w-2xl mx-auto px-4;
+  }
+  
+  /* Products */
+  .product-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4;
+  }
+  
+  .product-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .product-image {
+    @apply w-full h-48 object-cover;
+  }
+  
+  .product-info {
+    @apply p-6;
+  }
+  
+  .product-title {
+    @apply text-xl font-bold text-primary mb-2;
+  }
+  
+  .product-price {
+    @apply text-lg font-bold text-accent;
+  }
+  
+  /* Forms */
+  .form-container {
+    @apply max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg;
+  }
+  
+  .form-group {
+    @apply mb-6;
+  }
+  
+  .form-group label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary transition-colors;
+  }
+  
+  /* Footer */
+  .footer {
+    @apply bg-gray-800 text-white py-12;
+  }
+  
+  .footer-section {
+    @apply mb-8;
+  }
+  
+  .social-links {
+    @apply flex gap-4;
+  }
+  
+  .social-links a {
+    @apply text-white hover:text-primary transition-colors duration-300;
+  }
+  
+  /* Product Details */
+  .product-detail-container {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto p-8;
+  }
+  
+  .product-detail-image {
+    @apply sticky top-8;
+  }
+  
+  .detail-image {
+    @apply w-full h-[500px] object-cover rounded-lg shadow-lg;
+  }
+  
+  .product-detail-info {
+    @apply p-6;
+  }
+  
+  .product-meta {
+    @apply flex flex-wrap gap-4 my-4 text-gray-600;
+  }
+  
+  .product-meta span {
+    @apply flex items-center gap-2;
+  }
+  
+  /* Contact */
+  .contact-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto p-8;
+  }
+  
+  .contact-info {
+    @apply space-y-8;
+  }
+  
+  .info-cards {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+  
+  .info-card {
+    @apply bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .info-card i {
+    @apply text-2xl text-primary mb-4;
+  }
+  
+  .info-card h3 {
+    @apply text-lg font-bold text-gray-800 mb-2;
+  }
+  
+  .info-card p {
+    @apply text-gray-600;
+  }
+  
+  /* Farm Visit */
+  .visit-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto p-8;
+  }
+  
+  .visit-info {
+    @apply space-y-8;
+  }
+  
+  .experience-cards {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+  }
+  
+  .experience-card {
+    @apply bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .experience-card i {
+    @apply text-2xl text-primary mb-4;
+  }
+  
+  .experience-card h3 {
+    @apply text-lg font-bold text-gray-800 mb-2;
+  }
+  
+  .experience-card p {
+    @apply text-gray-600;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      @apply hidden;
+    }
+    
+    .product-detail-container,
+    .contact-grid,
+    .visit-grid {
+      @apply grid-cols-1;
+    }
+    
+    .experience-cards {
+      @apply grid-cols-1;
+    }
+  }
+}
+
+:root {
+  --primary-color: #2c5282;
+  --secondary-color: #4299e1;
+  --accent-color: #f6ad55;
+  --background-color: #f7fafc;
+  --text-color: #2d3748;
+  --light-gray: #edf2f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/dairy-farm.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 4rem 2rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-title {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  color: var(--accent-color);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.product-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.product-detail-image {
+    position: sticky;
+    top: 2rem;
+}
+
+.detail-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.product-detail-info {
+    padding: 1rem;
+}
+
+.product-meta {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+    color: var(--text-color);
+}
+
+.product-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-description,
+.product-features,
+.product-usage {
+    margin: 2rem 0;
+}
+
+.product-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.product-features i {
+    color: var(--accent-color);
+}
+
+.order-form {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .product-detail-container {
+    grid-template-columns: 1fr;
+  }
+
+  .product-detail-image {
+    position: static;
+  }
+
+  .detail-image {
+    height: 300px;
+  }
+
+  .product-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.error-container {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-container i {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.error-container h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.error-container p {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Contact Page Styles */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-info {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.info-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.social-links-large {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-links-large h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    background: var(--secondary-color);
+}
+
+.contact-form-container {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hours-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.hours-card:hover {
+    transform: translateY(-5px);
+}
+
+.hours-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hours-card h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.hours-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Farm Visit Page Styles */
+.visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.visit-info {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.experience-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+}
+
+.experience-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.experience-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.experience-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.visit-guidelines {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 0.5rem;
+}
+
+.visit-guidelines h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.visit-guidelines ul {
+    list-style: none;
+    padding: 0;
+}
+
+.visit-guidelines li {
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.visit-guidelines li i {
+    color: var(--primary-color);
+}
+
+.booking-form-container {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form {
+    margin-top: 2rem;
+}
+
+.booking-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.booking-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.expectations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.expectation-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.expectation-card:hover {
+    transform: translateY(-5px);
+}
+
+.expectation-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.expectation-card h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.expectation-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .visit-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .expectations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: #2c5282;
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Button */
+.hero .btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--primary-color), #2c5282);
+  border: 2px solid transparent;
+}
+
+.hero .btn:hover {
+  background: transparent;
+  border-color: white;
+  color: white;
+}
+
+/* Product Card Button */
+.product-card .btn {
+  width: 100%;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), #2c5282);
+}
+
+.product-card .btn:hover {
+  background: linear-gradient(135deg, #2c5282, var(--primary-color));
+}
+
+/* Form Button */
+.form-container .btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--primary-color), #2c5282);
+}
+
+.form-container .btn:hover {
+  background: linear-gradient(135deg, #2c5282, var(--primary-color));
+}

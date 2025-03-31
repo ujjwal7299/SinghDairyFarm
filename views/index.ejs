@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="navbar">
+        <div class="container flex justify-between items-center py-4">
+            <a href="/" class="navbar-brand">Singh Dairy Farm</a>
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+                <a href="/products"><i class="fas fa-milk"></i> Products</a>
+                <a href="/farm-visit"><i class="fas fa-calendar-alt"></i> Farm Visit</a>
+                <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Singh Dairy Farm</h1>
+            <p>Your trusted source for fresh, high-quality dairy products straight from our farm to your table.</p>
+            <a href="/products" class="btn">Explore Our Products</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Organic Farming</h3>
+                <p>We practice sustainable and organic farming methods to ensure the highest quality products.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>Fresh Daily</h3>
+                <p>Our products are collected fresh daily and delivered to maintain maximum freshness.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-heart"></i>
+                <h3>Animal Welfare</h3>
+                <p>We prioritize the health and well-being of our dairy cattle through proper care and nutrition.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Quality Assured</h3>
+                <p>All our products undergo strict quality checks to meet the highest standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--light-gray);">
+        <h2 class="section-title">Our Products</h2>
+        <div class="product-grid">
+            <% products.forEach(product => { %>
+                <div class="product-card">
+                    <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title"><%= product.name %></h3>
+                        <p><%= product.description %></p>
+                        <p class="product-price">₹<%= product.price %>/<%= product.unit %></p>
+                        <a href="/moredetails/<%= encodeURIComponent(product.name) %>" class="btn">Learn More</a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+
+    <section class="farm-visit">
+        <div class="container">
+            <h2>Visit Our Farm</h2>
+            <p>Experience the freshness of our dairy products firsthand. Schedule a visit to our farm and see how we maintain the highest standards of quality and hygiene.</p>
+            <a href="/farm-visit" class="btn">
+                Schedule Visit
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> +91 7834933718</p>
+                    <p><i class="fas fa-envelope"></i> singhdairy72@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mahuli Uttar Tola near Shiv Mandir, Saran -841411</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Singh Dairy Farm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand">Singh Dairy Farm</a>
+      <div class="nav-links">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="/products"><i class="fas fa-milk"></i> Products</a>
+        <a href="/farm-visit"><i class="fas fa-calendar-alt"></i> Farm Visit</a>
+        <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="about-page">
+    <div class="about-hero">
+      <div class="container">
+        <h1>About Singh Dairy Farm</h1>
+        <p class="tagline">Delivering pure and fresh dairy products since 1990</p>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <div class="container">
+        <section class="about-section">
+          <h2>Our Story</h2>
+          <div class="story-content">
+            <div class="story-text">
+              <p>Founded in 1990 by the Singh family, our dairy farm began with just five cows and a dream to provide the purest dairy products to our community. Today, we've grown into one of the region's most trusted dairy producers, maintaining our commitment to quality while embracing modern farming practices.</p>
+              <p>For over three decades, we've been serving our community with fresh, pure, and nutritious dairy products. What started as a small family venture has blossomed into a modern dairy farm that combines traditional values with contemporary farming techniques.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>Our Mission</h2>
+          <div class="mission-content">
+            <p>To provide the highest quality dairy products while maintaining sustainable farming practices and ensuring the welfare of our animals. We strive to:</p>
+            <ul class="mission-list">
+              <li>Deliver fresh, pure, and nutritious dairy products daily</li>
+              <li>Maintain the highest standards of hygiene and quality</li>
+              <li>Practice sustainable and environmentally friendly farming</li>
+              <li>Ensure the well-being of our cattle</li>
+              <li>Support local communities through employment and education</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>Our Farm</h2>
+          <div class="farm-details">
+            <div class="farm-feature">
+              <h3>Modern Facilities</h3>
+              <p>Our state-of-the-art milking facility ensures the highest standards of hygiene and efficiency. We use advanced equipment for milk collection, processing, and storage while maintaining strict quality controls.</p>
+            </div>
+            <div class="farm-feature">
+              <h3>Happy Cows</h3>
+              <p>We believe happy cows produce the best milk. Our cows enjoy spacious, clean shelters, regular health check-ups, and a nutritious diet of fresh grass and balanced feed supplements.</p>
+            </div>
+            <div class="farm-feature">
+              <h3>Sustainable Practices</h3>
+              <p>We implement eco-friendly practices including rainwater harvesting, solar power usage, and organic waste management. Our farm uses natural fertilizers and maintains a zero-waste policy.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>Quality Assurance</h2>
+          <div class="quality-content">
+            <p>At Singh Dairy Farm, quality is our top priority. Our comprehensive quality assurance program includes:</p>
+            <div class="quality-points">
+              <div class="quality-point">
+                <h3>Regular Testing</h3>
+                <p>Daily quality checks of milk and dairy products</p>
+              </div>
+              <div class="quality-point">
+                <h3>Hygiene Standards</h3>
+                <p>Strict adherence to international hygiene protocols</p>
+              </div>
+              <div class="quality-point">
+                <h3>Cold Chain</h3>
+                <p>Temperature-controlled storage and transportation</p>
+              </div>
+              <div class="quality-point">
+                <h3>Certifications</h3>
+                <p>Compliance with FSSAI and ISO standards</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>Community Involvement</h2>
+          <div class="community-content">
+            <p>We believe in giving back to our community through various initiatives:</p>
+            <ul class="community-list">
+              <li>Educational farm visits for schools</li>
+              <li>Employment opportunities for local residents</li>
+              <li>Support for local dairy farming education</li>
+              <li>Regular farmer training programs</li>
+              <li>Participation in local agricultural events</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .about-page {
+      background-color: #fff;
+    }
+
+    .about-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/farm.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .about-content {
+      padding: 2rem 0 4rem;
+    }
+
+    .about-section {
+      margin-bottom: 4rem;
+    }
+
+    .about-section h2 {
+      color: #2c5282;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .about-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #4299e1;
+      border-radius: 2px;
+    }
+
+    .story-content, .mission-content, .farm-details, .quality-content, .community-content {
+      line-height: 1.8;
+      color: #2d3748;
+    }
+
+    .mission-list, .community-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+
+    .mission-list li, .community-list li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+
+    .mission-list li::before, .community-list li::before {
+      content: '✓';
+      color: #4299e1;
+      position: absolute;
+      left: 0;
+    }
+
+    .farm-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .farm-feature {
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .farm-feature h3 {
+      color: #2c5282;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .quality-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .quality-point {
+      background: #f7fafc;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .quality-point h3 {
+      color: #2c5282;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero {
+        padding: 4rem 1rem;
+      }
+
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-section {
+        margin-bottom: 3rem;
+      }
+
+      .about-section h2 {
+        font-size: 1.75rem;
+      }
+
+      .farm-details, .quality-points {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .about-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-phone"></i> +91 7834933718</p>
+          <p><i class="fas fa-envelope"></i> singhdairy72@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Mahuli Uttar Tola near Shiv Mandir, Saran -841411</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Singh Dairy Farm. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Visit - Singh Dairy Farm</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .hero-bg {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/farm-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .alert {
+      transition: opacity 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <%- include('partials/header') %>
+
+  <% if (typeof success !== 'undefined' && success) { %>
+    <div id="successAlert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative alert" role="alert">
+      <strong class="font-bold">Success!</strong>
+      <span class="block sm:inline"> Your farm visit request has been submitted. We will contact you shortly to confirm the details.</span>
+    </div>
+  <% } %>
+
+  <% if (typeof error !== 'undefined' && error) { %>
+    <div id="errorAlert" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative alert" role="alert">
+      <strong class="font-bold">Error!</strong>
+      <span class="block sm:inline"> There was an error processing your request. Please try again.</span>
+    </div>
+  <% } %>
+
+  <!-- Hero Section -->
+  <div class="hero-bg h-[60vh] flex items-center justify-center text-white">
+    <div class="text-center">
+      <h1 class="text-5xl font-bold mb-4">Visit Our Farm</h1>
+      <p class="text-xl mb-8">Experience the magic of dairy farming firsthand</p>
+      <a href="#booking" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+        Book Your Visit
+      </a>
+    </div>
+  </div>
+
+  <!-- Experience Section -->
+  <div class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Your Farm Experience</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
+          <div class="text-green-600 text-4xl mb-4">
+            <i class="fas fa-cow"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Meet Our Cows</h3>
+          <p class="text-gray-600">Get up close with our friendly dairy cows and learn about their daily care and feeding routines.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
+          <div class="text-green-600 text-4xl mb-4">
+            <i class="fas fa-industry"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Milk Processing</h3>
+          <p class="text-gray-600">Watch how we process fresh milk into various dairy products in our modern facility.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
+          <div class="text-green-600 text-4xl mb-4">
+            <i class="fas fa-ice-cream"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Product Tasting</h3>
+          <p class="text-gray-600">Sample our fresh dairy products and learn about their nutritional benefits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visit Details Section -->
+  <div class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Visit Information</h2>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <i class="fas fa-clock text-green-600 mt-1 mr-3"></i>
+              <div>
+                <h3 class="font-bold">Duration</h3>
+                <p class="text-gray-600">2-3 hours</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-users text-green-600 mt-1 mr-3"></i>
+              <div>
+                <h3 class="font-bold">Group Size</h3>
+                <p class="text-gray-600">Maximum 20 people per visit</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-calendar text-green-600 mt-1 mr-3"></i>
+              <div>
+                <h3 class="font-bold">Available Days</h3>
+                <p class="text-gray-600">Monday - Saturday</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold mb-6">What to Bring</h2>
+          <ul class="space-y-3">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-600 mr-2"></i>
+              Comfortable walking shoes
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-600 mr-2"></i>
+              Weather-appropriate clothing
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-600 mr-2"></i>
+              Camera for photos
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-600 mr-2"></i>
+              Water bottle
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Form Section -->
+  <div id="booking" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Book Your Visit</h2>
+      <div class="max-w-2xl mx-auto">
+        <form action="/farm-visit" method="POST" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 font-bold mb-2" for="name">Full Name</label>
+              <input type="text" id="name" name="name" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+            </div>
+            <div>
+              <label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
+              <input type="email" id="email" name="email" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 font-bold mb-2" for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+            </div>
+            <div>
+              <label class="block text-gray-700 font-bold mb-2" for="groupSize">Group Size</label>
+              <input type="number" id="groupSize" name="groupSize" min="1" max="20" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 font-bold mb-2" for="date">Preferred Date</label>
+              <input type="date" id="date" name="date" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+            </div>
+            <div>
+              <label class="block text-gray-700 font-bold mb-2" for="time">Preferred Time</label>
+              <select id="time" name="time" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                <option value="">Select a time</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="14:00">2:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-bold mb-2" for="requirements">Special Requirements</label>
+            <textarea id="requirements" name="requirements" rows="4"
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-green-500"
+              placeholder="Any dietary restrictions or special needs?"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit"
+              class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+              Submit Booking Request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    // Function to hide alert after 5 seconds
+    function hideAlert(alertId) {
+      const alert = document.getElementById(alertId);
+      if (alert) {
+        setTimeout(() => {
+          alert.style.opacity = '0';
+          setTimeout(() => {
+            alert.remove();
+          }, 500);
+        }, 5000);
+      }
+    }
+
+    // Hide success alert if it exists
+    hideAlert('successAlert');
+    // Hide error alert if it exists
+    hideAlert('errorAlert');
+  </script>
+</body>
+</html>
